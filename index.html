@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 902px;
+            height: 852px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/RungTrong_XuanDai_20201231_9.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[21.054248751109114,104.96480490812539],[21.18586004448765,105.11334477831879]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_GoogleHybrid_0');
+        map.getPane('pane_GoogleHybrid_0').style.zIndex = 400;
+        var layer_GoogleHybrid_0 = L.tileLayer('http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleHybrid_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 18
+        });
+        layer_GoogleHybrid_0;
+        map.addLayer(layer_GoogleHybrid_0);
+        map.createPane('pane_Paper_forest_S2_20210617_EVI_1');
+        map.getPane('pane_Paper_forest_S2_20210617_EVI_1').style.zIndex = 401;
+        var img_Paper_forest_S2_20210617_EVI_1 = 'data/Paper_forest_S2_20210617_EVI_1.png';
+        var img_bounds_Paper_forest_S2_20210617_EVI_1 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_Paper_forest_S2_20210617_EVI_1 = new L.imageOverlay(img_Paper_forest_S2_20210617_EVI_1,
+                                              img_bounds_Paper_forest_S2_20210617_EVI_1,
+                                              {pane: 'pane_Paper_forest_S2_20210617_EVI_1'});
+        bounds_group.addLayer(layer_Paper_forest_S2_20210617_EVI_1);
+        map.addLayer(layer_Paper_forest_S2_20210617_EVI_1);
+        map.createPane('pane_Paper_forest_S2_20200622_EVI_2');
+        map.getPane('pane_Paper_forest_S2_20200622_EVI_2').style.zIndex = 402;
+        var img_Paper_forest_S2_20200622_EVI_2 = 'data/Paper_forest_S2_20200622_EVI_2.png';
+        var img_bounds_Paper_forest_S2_20200622_EVI_2 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_Paper_forest_S2_20200622_EVI_2 = new L.imageOverlay(img_Paper_forest_S2_20200622_EVI_2,
+                                              img_bounds_Paper_forest_S2_20200622_EVI_2,
+                                              {pane: 'pane_Paper_forest_S2_20200622_EVI_2'});
+        bounds_group.addLayer(layer_Paper_forest_S2_20200622_EVI_2);
+        map.addLayer(layer_Paper_forest_S2_20200622_EVI_2);
+        map.createPane('pane_Vegetation_Analysis_11_4_8_20210617_3');
+        map.getPane('pane_Vegetation_Analysis_11_4_8_20210617_3').style.zIndex = 403;
+        var img_Vegetation_Analysis_11_4_8_20210617_3 = 'data/Vegetation_Analysis_11_4_8_20210617_3.png';
+        var img_bounds_Vegetation_Analysis_11_4_8_20210617_3 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_Vegetation_Analysis_11_4_8_20210617_3 = new L.imageOverlay(img_Vegetation_Analysis_11_4_8_20210617_3,
+                                              img_bounds_Vegetation_Analysis_11_4_8_20210617_3,
+                                              {pane: 'pane_Vegetation_Analysis_11_4_8_20210617_3'});
+        bounds_group.addLayer(layer_Vegetation_Analysis_11_4_8_20210617_3);
+        map.addLayer(layer_Vegetation_Analysis_11_4_8_20210617_3);
+        map.createPane('pane_Vegetation_Analysis_11_4_8_20200622_4');
+        map.getPane('pane_Vegetation_Analysis_11_4_8_20200622_4').style.zIndex = 404;
+        var img_Vegetation_Analysis_11_4_8_20200622_4 = 'data/Vegetation_Analysis_11_4_8_20200622_4.png';
+        var img_bounds_Vegetation_Analysis_11_4_8_20200622_4 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_Vegetation_Analysis_11_4_8_20200622_4 = new L.imageOverlay(img_Vegetation_Analysis_11_4_8_20200622_4,
+                                              img_bounds_Vegetation_Analysis_11_4_8_20200622_4,
+                                              {pane: 'pane_Vegetation_Analysis_11_4_8_20200622_4'});
+        bounds_group.addLayer(layer_Vegetation_Analysis_11_4_8_20200622_4);
+        map.addLayer(layer_Vegetation_Analysis_11_4_8_20200622_4);
+        map.createPane('pane_RGB_20210617_5');
+        map.getPane('pane_RGB_20210617_5').style.zIndex = 405;
+        var img_RGB_20210617_5 = 'data/RGB_20210617_5.png';
+        var img_bounds_RGB_20210617_5 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_RGB_20210617_5 = new L.imageOverlay(img_RGB_20210617_5,
+                                              img_bounds_RGB_20210617_5,
+                                              {pane: 'pane_RGB_20210617_5'});
+        bounds_group.addLayer(layer_RGB_20210617_5);
+        map.addLayer(layer_RGB_20210617_5);
+        map.createPane('pane_RGB_20200622_6');
+        map.getPane('pane_RGB_20200622_6').style.zIndex = 406;
+        var img_RGB_20200622_6 = 'data/RGB_20200622_6.png';
+        var img_bounds_RGB_20200622_6 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_RGB_20200622_6 = new L.imageOverlay(img_RGB_20200622_6,
+                                              img_bounds_RGB_20200622_6,
+                                              {pane: 'pane_RGB_20200622_6'});
+        bounds_group.addLayer(layer_RGB_20200622_6);
+        map.addLayer(layer_RGB_20200622_6);
+        map.createPane('pane_Forest_20200622_7');
+        map.getPane('pane_Forest_20200622_7').style.zIndex = 407;
+        var img_Forest_20200622_7 = 'data/Forest_20200622_7.png';
+        var img_bounds_Forest_20200622_7 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_Forest_20200622_7 = new L.imageOverlay(img_Forest_20200622_7,
+                                              img_bounds_Forest_20200622_7,
+                                              {pane: 'pane_Forest_20200622_7'});
+        bounds_group.addLayer(layer_Forest_20200622_7);
+        map.addLayer(layer_Forest_20200622_7);
+        map.createPane('pane_Forest_20210617_8');
+        map.getPane('pane_Forest_20210617_8').style.zIndex = 408;
+        var img_Forest_20210617_8 = 'data/Forest_20210617_8.png';
+        var img_bounds_Forest_20210617_8 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_Forest_20210617_8 = new L.imageOverlay(img_Forest_20210617_8,
+                                              img_bounds_Forest_20210617_8,
+                                              {pane: 'pane_Forest_20210617_8'});
+        bounds_group.addLayer(layer_Forest_20210617_8);
+        map.addLayer(layer_Forest_20210617_8);
+        function pop_RungTrong_XuanDai_20201231_9(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STT'] !== null ? autolinker.link(feature.properties['STT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">HUYEN</th>\
+                        <td>' + (feature.properties['HUYEN'] !== null ? autolinker.link(feature.properties['HUYEN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">XA</th>\
+                        <td>' + (feature.properties['XA'] !== null ? autolinker.link(feature.properties['XA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DOI_SX</th>\
+                        <td>' + (feature.properties['DOI_SX'] !== null ? autolinker.link(feature.properties['DOI_SX'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">THUADAT</th>\
+                        <td>' + (feature.properties['THUADAT'] !== null ? autolinker.link(feature.properties['THUADAT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LOAI_DAT</th>\
+                        <td>' + (feature.properties['LOAI_DAT'] !== null ? autolinker.link(feature.properties['LOAI_DAT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">HIENTRANG</th>\
+                        <td>' + (feature.properties['HIENTRANG'] !== null ? autolinker.link(feature.properties['HIENTRANG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DT_ha</th>\
+                        <td>' + (feature.properties['DT_ha'] !== null ? autolinker.link(feature.properties['DT_ha'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MA_SO'] !== null ? autolinker.link(feature.properties['MA_SO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RungTrong_XuanDai_20201231_9_0(feature) {
+            switch(String(feature.properties['HIENTRANG'])) {
+                case 'KRND':
+                    return {
+                pane: 'pane_RungTrong_XuanDai_20201231_9',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.375)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(14,224,24,0.375)',
+                interactive: true,
+            }
+                    break;
+                case 'MON':
+                    return {
+                pane: 'pane_RungTrong_XuanDai_20201231_9',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.375)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(216,122,157,0.375)',
+                interactive: true,
+            }
+                    break;
+                case 'NKH':
+                    return {
+                pane: 'pane_RungTrong_XuanDai_20201231_9',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.375)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(61,88,224,0.375)',
+                interactive: true,
+            }
+                    break;
+                case 'RT':
+                    return {
+                pane: 'pane_RungTrong_XuanDai_20201231_9',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.375)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,105,64,0.375)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_RungTrong_XuanDai_20201231_9');
+        map.getPane('pane_RungTrong_XuanDai_20201231_9').style.zIndex = 409;
+        map.getPane('pane_RungTrong_XuanDai_20201231_9').style['mix-blend-mode'] = 'normal';
+        var layer_RungTrong_XuanDai_20201231_9 = new L.geoJson(json_RungTrong_XuanDai_20201231_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_RungTrong_XuanDai_20201231_9',
+            layerName: 'layer_RungTrong_XuanDai_20201231_9',
+            pane: 'pane_RungTrong_XuanDai_20201231_9',
+            onEachFeature: pop_RungTrong_XuanDai_20201231_9,
+            style: style_RungTrong_XuanDai_20201231_9_0,
+        });
+        bounds_group.addLayer(layer_RungTrong_XuanDai_20201231_9);
+        map.addLayer(layer_RungTrong_XuanDai_20201231_9);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'RungTrong_XuanDai_20201231<br /><table><tr><td style="text-align: center;"><img src="legend/RungTrong_XuanDai_20201231_9_KRND0.png" /></td><td>KRND</td></tr><tr><td style="text-align: center;"><img src="legend/RungTrong_XuanDai_20201231_9_MON1.png" /></td><td>MON</td></tr><tr><td style="text-align: center;"><img src="legend/RungTrong_XuanDai_20201231_9_NKH2.png" /></td><td>NKH</td></tr><tr><td style="text-align: center;"><img src="legend/RungTrong_XuanDai_20201231_9_RT3.png" /></td><td>RT</td></tr></table>': layer_RungTrong_XuanDai_20201231_9,"Forest_20210617": layer_Forest_20210617_8,"Forest_20200622": layer_Forest_20200622_7,"RGB_20200622": layer_RGB_20200622_6,"RGB_20210617": layer_RGB_20210617_5,"Vegetation_Analysis_11_4_8_20200622": layer_Vegetation_Analysis_11_4_8_20200622_4,"Vegetation_Analysis_11_4_8_20210617": layer_Vegetation_Analysis_11_4_8_20210617_3,"Paper_forest_S2_20200622_EVI": layer_Paper_forest_S2_20200622_EVI_2,"Paper_forest_S2_20210617_EVI": layer_Paper_forest_S2_20210617_EVI_1,"Google Hybrid": layer_GoogleHybrid_0,}).addTo(map);
+        setBounds();
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>
