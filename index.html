@@ -8,9 +8,11 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/filter.css">
+<link rel="stylesheet" href="css/nouislider.min.css">
         <style>
         #map {
-            width: 902px;
+            width: 914px;
             height: 852px;
         }
         </style>
@@ -28,7 +30,10 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/RungTrong_XuanDai_20201231_9.js"></script>
+        <script src="js/tailDT.js"></script>
+<script src="js/nouislider.min.js"></script>
+<script src="js/wNumb.js"></script>
+        <script src="data/Ccvngrngphnloi_3.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -47,8 +52,9 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[21.054248751109114,104.96480490812539],[21.18586004448765,105.11334477831879]]);
+        }).fitBounds([[21.082958086063986,104.99917431879646],[21.178553957338313,105.10174306538727]]);
         var hash = new L.Hash(map);
+        map.attributionControl.setPrefix();
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
@@ -66,79 +72,25 @@
         });
         layer_GoogleHybrid_0;
         map.addLayer(layer_GoogleHybrid_0);
-        map.createPane('pane_Paper_forest_S2_20210617_EVI_1');
-        map.getPane('pane_Paper_forest_S2_20210617_EVI_1').style.zIndex = 401;
-        var img_Paper_forest_S2_20210617_EVI_1 = 'data/Paper_forest_S2_20210617_EVI_1.png';
-        var img_bounds_Paper_forest_S2_20210617_EVI_1 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
-        var layer_Paper_forest_S2_20210617_EVI_1 = new L.imageOverlay(img_Paper_forest_S2_20210617_EVI_1,
-                                              img_bounds_Paper_forest_S2_20210617_EVI_1,
-                                              {pane: 'pane_Paper_forest_S2_20210617_EVI_1'});
-        bounds_group.addLayer(layer_Paper_forest_S2_20210617_EVI_1);
-        map.addLayer(layer_Paper_forest_S2_20210617_EVI_1);
-        map.createPane('pane_Paper_forest_S2_20200622_EVI_2');
-        map.getPane('pane_Paper_forest_S2_20200622_EVI_2').style.zIndex = 402;
-        var img_Paper_forest_S2_20200622_EVI_2 = 'data/Paper_forest_S2_20200622_EVI_2.png';
-        var img_bounds_Paper_forest_S2_20200622_EVI_2 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
-        var layer_Paper_forest_S2_20200622_EVI_2 = new L.imageOverlay(img_Paper_forest_S2_20200622_EVI_2,
-                                              img_bounds_Paper_forest_S2_20200622_EVI_2,
-                                              {pane: 'pane_Paper_forest_S2_20200622_EVI_2'});
-        bounds_group.addLayer(layer_Paper_forest_S2_20200622_EVI_2);
-        map.addLayer(layer_Paper_forest_S2_20200622_EVI_2);
-        map.createPane('pane_Vegetation_Analysis_11_4_8_20210617_3');
-        map.getPane('pane_Vegetation_Analysis_11_4_8_20210617_3').style.zIndex = 403;
-        var img_Vegetation_Analysis_11_4_8_20210617_3 = 'data/Vegetation_Analysis_11_4_8_20210617_3.png';
-        var img_bounds_Vegetation_Analysis_11_4_8_20210617_3 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
-        var layer_Vegetation_Analysis_11_4_8_20210617_3 = new L.imageOverlay(img_Vegetation_Analysis_11_4_8_20210617_3,
-                                              img_bounds_Vegetation_Analysis_11_4_8_20210617_3,
-                                              {pane: 'pane_Vegetation_Analysis_11_4_8_20210617_3'});
-        bounds_group.addLayer(layer_Vegetation_Analysis_11_4_8_20210617_3);
-        map.addLayer(layer_Vegetation_Analysis_11_4_8_20210617_3);
-        map.createPane('pane_Vegetation_Analysis_11_4_8_20200622_4');
-        map.getPane('pane_Vegetation_Analysis_11_4_8_20200622_4').style.zIndex = 404;
-        var img_Vegetation_Analysis_11_4_8_20200622_4 = 'data/Vegetation_Analysis_11_4_8_20200622_4.png';
-        var img_bounds_Vegetation_Analysis_11_4_8_20200622_4 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
-        var layer_Vegetation_Analysis_11_4_8_20200622_4 = new L.imageOverlay(img_Vegetation_Analysis_11_4_8_20200622_4,
-                                              img_bounds_Vegetation_Analysis_11_4_8_20200622_4,
-                                              {pane: 'pane_Vegetation_Analysis_11_4_8_20200622_4'});
-        bounds_group.addLayer(layer_Vegetation_Analysis_11_4_8_20200622_4);
-        map.addLayer(layer_Vegetation_Analysis_11_4_8_20200622_4);
-        map.createPane('pane_RGB_20210617_5');
-        map.getPane('pane_RGB_20210617_5').style.zIndex = 405;
-        var img_RGB_20210617_5 = 'data/RGB_20210617_5.png';
-        var img_bounds_RGB_20210617_5 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
-        var layer_RGB_20210617_5 = new L.imageOverlay(img_RGB_20210617_5,
-                                              img_bounds_RGB_20210617_5,
-                                              {pane: 'pane_RGB_20210617_5'});
-        bounds_group.addLayer(layer_RGB_20210617_5);
-        map.addLayer(layer_RGB_20210617_5);
-        map.createPane('pane_RGB_20200622_6');
-        map.getPane('pane_RGB_20200622_6').style.zIndex = 406;
-        var img_RGB_20200622_6 = 'data/RGB_20200622_6.png';
-        var img_bounds_RGB_20200622_6 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
-        var layer_RGB_20200622_6 = new L.imageOverlay(img_RGB_20200622_6,
-                                              img_bounds_RGB_20200622_6,
-                                              {pane: 'pane_RGB_20200622_6'});
-        bounds_group.addLayer(layer_RGB_20200622_6);
-        map.addLayer(layer_RGB_20200622_6);
-        map.createPane('pane_Forest_20200622_7');
-        map.getPane('pane_Forest_20200622_7').style.zIndex = 407;
-        var img_Forest_20200622_7 = 'data/Forest_20200622_7.png';
-        var img_bounds_Forest_20200622_7 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
-        var layer_Forest_20200622_7 = new L.imageOverlay(img_Forest_20200622_7,
-                                              img_bounds_Forest_20200622_7,
-                                              {pane: 'pane_Forest_20200622_7'});
-        bounds_group.addLayer(layer_Forest_20200622_7);
-        map.addLayer(layer_Forest_20200622_7);
-        map.createPane('pane_Forest_20210617_8');
-        map.getPane('pane_Forest_20210617_8').style.zIndex = 408;
-        var img_Forest_20210617_8 = 'data/Forest_20210617_8.png';
-        var img_bounds_Forest_20210617_8 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
-        var layer_Forest_20210617_8 = new L.imageOverlay(img_Forest_20210617_8,
-                                              img_bounds_Forest_20210617_8,
-                                              {pane: 'pane_Forest_20210617_8'});
-        bounds_group.addLayer(layer_Forest_20210617_8);
-        map.addLayer(layer_Forest_20210617_8);
-        function pop_RungTrong_XuanDai_20201231_9(feature, layer) {
+        map.createPane('pane_nhmuvtinh13012022_1');
+        map.getPane('pane_nhmuvtinh13012022_1').style.zIndex = 401;
+        var img_nhmuvtinh13012022_1 = 'data/nhmuvtinh13012022_1.png';
+        var img_bounds_nhmuvtinh13012022_1 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_nhmuvtinh13012022_1 = new L.imageOverlay(img_nhmuvtinh13012022_1,
+                                              img_bounds_nhmuvtinh13012022_1,
+                                              {pane: 'pane_nhmuvtinh13012022_1'});
+        bounds_group.addLayer(layer_nhmuvtinh13012022_1);
+        map.addLayer(layer_nhmuvtinh13012022_1);
+        map.createPane('pane_Dintchrng13012022_2');
+        map.getPane('pane_Dintchrng13012022_2').style.zIndex = 402;
+        var img_Dintchrng13012022_2 = 'data/Dintchrng13012022_2.png';
+        var img_bounds_Dintchrng13012022_2 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_Dintchrng13012022_2 = new L.imageOverlay(img_Dintchrng13012022_2,
+                                              img_bounds_Dintchrng13012022_2,
+                                              {pane: 'pane_Dintchrng13012022_2'});
+        bounds_group.addLayer(layer_Dintchrng13012022_2);
+        map.addLayer(layer_Dintchrng13012022_2);
+        function pop_Ccvngrngphnloi_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -149,124 +101,262 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['STT'] !== null ? autolinker.link(feature.properties['STT'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">HUYEN</th>\
-                        <td>' + (feature.properties['HUYEN'] !== null ? autolinker.link(feature.properties['HUYEN'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">XA</th>\
-                        <td>' + (feature.properties['XA'] !== null ? autolinker.link(feature.properties['XA'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">STT</th>\
+                        <td>' + (feature.properties['STT'] !== null ? autolinker.link(feature.properties['STT'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">DOI_SX</th>\
                         <td>' + (feature.properties['DOI_SX'] !== null ? autolinker.link(feature.properties['DOI_SX'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">THUADAT</th>\
-                        <td>' + (feature.properties['THUADAT'] !== null ? autolinker.link(feature.properties['THUADAT'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">KHOANH</th>\
+                        <td>' + (feature.properties['KHOANH'] !== null ? autolinker.link(feature.properties['KHOANH'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">LOAI_DAT</th>\
-                        <td>' + (feature.properties['LOAI_DAT'] !== null ? autolinker.link(feature.properties['LOAI_DAT'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">LO</th>\
+                        <td>' + (feature.properties['LO'] !== null ? autolinker.link(feature.properties['LO'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">HIENTRANG</th>\
-                        <td>' + (feature.properties['HIENTRANG'] !== null ? autolinker.link(feature.properties['HIENTRANG'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">LOAI_CAY</th>\
+                        <td>' + (feature.properties['LOAI_CAY'] !== null ? autolinker.link(feature.properties['LOAI_CAY'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">DT_ha</th>\
-                        <td>' + (feature.properties['DT_ha'] !== null ? autolinker.link(feature.properties['DT_ha'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">NAM_TRONG</th>\
+                        <td>' + (feature.properties['NAM_TRONG'] !== null ? autolinker.link(feature.properties['NAM_TRONG'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['MA_SO'] !== null ? autolinker.link(feature.properties['MA_SO'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">XA</th>\
+                        <td>' + (feature.properties['XA'] !== null ? autolinker.link(feature.properties['XA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DOI_SX_CU</th>\
+                        <td>' + (feature.properties['DOI_SX_CU'] !== null ? autolinker.link(feature.properties['DOI_SX_CU'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DT_BAOCAO</th>\
+                        <td>' + (feature.properties['DT_BAOCAO'] !== null ? autolinker.link(feature.properties['DT_BAOCAO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DT_POLYGON</th>\
+                        <td>' + (feature.properties['DT_POLYGON'] !== null ? autolinker.link(feature.properties['DT_POLYGON'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DT_AnhVT</th>\
+                        <td>' + (feature.properties['DT_AnhVT'] !== null ? autolinker.link(feature.properties['DT_AnhVT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Chenhlech3</th>\
+                        <td>' + (feature.properties['Chenhlech3'] !== null ? autolinker.link(feature.properties['Chenhlech3'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_RungTrong_XuanDai_20201231_9_0(feature) {
-            switch(String(feature.properties['HIENTRANG'])) {
-                case 'KRND':
-                    return {
-                pane: 'pane_RungTrong_XuanDai_20201231_9',
+        function style_Ccvngrngphnloi_3_0(feature) {
+            if (feature.properties['Chenhlech3'] >= -1.000000 && feature.properties['Chenhlech3'] <= 0.599000 ) {
+                return {
+                pane: 'pane_Ccvngrngphnloi_3',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.375)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(14,224,24,0.375)',
+                fillColor: 'rgba(72,169,24,1.0)',
                 interactive: true,
             }
-                    break;
-                case 'MON':
-                    return {
-                pane: 'pane_RungTrong_XuanDai_20201231_9',
+            }
+            if (feature.properties['Chenhlech3'] >= 0.600000 && feature.properties['Chenhlech3'] <= 1.500000 ) {
+                return {
+                pane: 'pane_Ccvngrngphnloi_3',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.375)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(216,122,157,0.375)',
+                fillColor: 'rgba(181,126,49,1.0)',
                 interactive: true,
             }
-                    break;
-                case 'NKH':
-                    return {
-                pane: 'pane_RungTrong_XuanDai_20201231_9',
+            }
+            if (feature.properties['Chenhlech3'] >= 1.500000 && feature.properties['Chenhlech3'] <= 5.000000 ) {
+                return {
+                pane: 'pane_Ccvngrngphnloi_3',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.375)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(61,88,224,0.375)',
+                fillColor: 'rgba(230,17,63,1.0)',
                 interactive: true,
             }
-                    break;
-                case 'RT':
-                    return {
-                pane: 'pane_RungTrong_XuanDai_20201231_9',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.375)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(226,105,64,0.375)',
-                interactive: true,
-            }
-                    break;
             }
         }
-        map.createPane('pane_RungTrong_XuanDai_20201231_9');
-        map.getPane('pane_RungTrong_XuanDai_20201231_9').style.zIndex = 409;
-        map.getPane('pane_RungTrong_XuanDai_20201231_9').style['mix-blend-mode'] = 'normal';
-        var layer_RungTrong_XuanDai_20201231_9 = new L.geoJson(json_RungTrong_XuanDai_20201231_9, {
+        map.createPane('pane_Ccvngrngphnloi_3');
+        map.getPane('pane_Ccvngrngphnloi_3').style.zIndex = 403;
+        map.getPane('pane_Ccvngrngphnloi_3').style['mix-blend-mode'] = 'normal';
+        var layer_Ccvngrngphnloi_3 = new L.geoJson(json_Ccvngrngphnloi_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_RungTrong_XuanDai_20201231_9',
-            layerName: 'layer_RungTrong_XuanDai_20201231_9',
-            pane: 'pane_RungTrong_XuanDai_20201231_9',
-            onEachFeature: pop_RungTrong_XuanDai_20201231_9,
-            style: style_RungTrong_XuanDai_20201231_9_0,
+            dataVar: 'json_Ccvngrngphnloi_3',
+            layerName: 'layer_Ccvngrngphnloi_3',
+            pane: 'pane_Ccvngrngphnloi_3',
+            onEachFeature: pop_Ccvngrngphnloi_3,
+            style: style_Ccvngrngphnloi_3_0,
         });
-        bounds_group.addLayer(layer_RungTrong_XuanDai_20201231_9);
-        map.addLayer(layer_RungTrong_XuanDai_20201231_9);
+        bounds_group.addLayer(layer_Ccvngrngphnloi_3);
+        map.addLayer(layer_Ccvngrngphnloi_3);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'RungTrong_XuanDai_20201231<br /><table><tr><td style="text-align: center;"><img src="legend/RungTrong_XuanDai_20201231_9_KRND0.png" /></td><td>KRND</td></tr><tr><td style="text-align: center;"><img src="legend/RungTrong_XuanDai_20201231_9_MON1.png" /></td><td>MON</td></tr><tr><td style="text-align: center;"><img src="legend/RungTrong_XuanDai_20201231_9_NKH2.png" /></td><td>NKH</td></tr><tr><td style="text-align: center;"><img src="legend/RungTrong_XuanDai_20201231_9_RT3.png" /></td><td>RT</td></tr></table>': layer_RungTrong_XuanDai_20201231_9,"Forest_20210617": layer_Forest_20210617_8,"Forest_20200622": layer_Forest_20200622_7,"RGB_20200622": layer_RGB_20200622_6,"RGB_20210617": layer_RGB_20210617_5,"Vegetation_Analysis_11_4_8_20200622": layer_Vegetation_Analysis_11_4_8_20200622_4,"Vegetation_Analysis_11_4_8_20210617": layer_Vegetation_Analysis_11_4_8_20210617_3,"Paper_forest_S2_20200622_EVI": layer_Paper_forest_S2_20200622_EVI_2,"Paper_forest_S2_20210617_EVI": layer_Paper_forest_S2_20210617_EVI_1,"Google Hybrid": layer_GoogleHybrid_0,}).addTo(map);
+        L.control.layers(baseMaps,{'Các vùng rừng đã phân loại<br /><table><tr><td style="text-align: center;"><img src="legend/Ccvngrngphnloi_3_Chênhlệchnhỏ0.png" /></td><td>Chênh lệch nhỏ</td></tr><tr><td style="text-align: center;"><img src="legend/Ccvngrngphnloi_3_Chênhlệchtrungbình1.png" /></td><td>Chênh lệch trung bình</td></tr><tr><td style="text-align: center;"><img src="legend/Ccvngrngphnloi_3_Chênhlệchlớn2.png" /></td><td>Chênh lệch lớn</td></tr></table>': layer_Ccvngrngphnloi_3,"Diện tích rừng (13/01/2022)": layer_Dintchrng13012022_2,"Ảnh màu vệ tinh (13/01/2022)": layer_nhmuvtinh13012022_1,"Google Hybrid": layer_GoogleHybrid_0,}).addTo(map);
         setBounds();
+        var mapDiv = document.getElementById('map');
+        var row = document.createElement('div');
+        row.className="row";
+        row.id="all";
+        row.style.height = "100%";
+        var col1 = document.createElement('div');
+        col1.className="col9";
+        col1.id = "mapWindow";
+        col1.style.height = "99%";
+        col1.style.width = "80%";
+        col1.style.display = "inline-block";
+        var col2 = document.createElement('div');
+        col2.className="col3";
+        col2.id = "menu";
+        col2.style.display = "inline-block";
+        mapDiv.parentNode.insertBefore(row, mapDiv);
+        document.getElementById("all").appendChild(col1);
+        document.getElementById("all").appendChild(col2);
+        col1.appendChild(mapDiv)
+        var Filters = {"Chenhlech3": "real"};
+        function filterFunc() {
+          map.eachLayer(function(lyr){
+          if ("options" in lyr && "dataVar" in lyr["options"]){
+            features = this[lyr["options"]["dataVar"]].features.slice(0);
+            try{
+              for (key in Filters){
+                keyS = key.replace(/[^a-zA-Z0-9_]/g, "")
+                if (Filters[key] == "str" || Filters[key] == "bool"){
+                  var selection = [];
+                  var options = document.getElementById("sel_" + keyS).options
+                  for (var i=0; i < options.length; i++) {
+                    if (options[i].selected) selection.push(options[i].value);
+                  }
+                    try{
+                      if (key in features[0].properties){
+                        for (i = features.length - 1;
+                          i >= 0; --i){
+                          if (selection.indexOf(
+                          features[i].properties[key])<0
+                          && selection.length>0) {
+                          features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                  }
+                }
+                if (Filters[key] == "int"){
+                  sliderVals =  document.getElementById(
+                    "div_" + keyS).noUiSlider.get();
+                  try{
+                    if (key in features[0].properties){
+                    for (i = features.length - 1; i >= 0; --i){
+                      if (parseInt(features[i].properties[key])
+                          < sliderVals[0]
+                          || parseInt(features[i].properties[key])
+                          > sliderVals[1]){
+                            features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                    }
+                  }
+                if (Filters[key] == "real"){
+                  sliderVals =  document.getElementById(
+                    "div_" + keyS).noUiSlider.get();
+                  try{
+                    if (key in features[0].properties){
+                    for (i = features.length - 1; i >= 0; --i){
+                      if (features[i].properties[key]
+                          < sliderVals[0]
+                          || features[i].properties[key]
+                          > sliderVals[1]){
+                            features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                    }
+                  }
+                if (Filters[key] == "date"
+                  || Filters[key] == "datetime"
+                  || Filters[key] == "time"){
+                  try{
+                    if (key in features[0].properties){
+                      HTMLkey = key.replace(/[&\/\\#,+()$~%.'":*?<>{} ]/g, '');
+                      startdate = document.getElementById("dat_" +
+                        HTMLkey + "_date1").value.replace(" ", "T");
+                      enddate = document.getElementById("dat_" +
+                        HTMLkey + "_date2").value.replace(" ", "T");
+                      for (i = features.length - 1; i >= 0; --i){
+                        if (features[i].properties[key] < startdate
+                          || features[i].properties[key] > enddate){
+                          features.splice(i,1);
+                        }
+                      }
+                    }
+                  } catch(err){
+                  }
+                }
+              }
+            } catch(err){
+            }
+          this[lyr["options"]["layerName"]].clearLayers();
+          this[lyr["options"]["layerName"]].addData(features);
+          }
+          })
+        }
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_Chenhlech3 = document.createElement("div");
+            div_Chenhlech3.id = "div_Chenhlech3";
+            div_Chenhlech3.className = "slider";
+            document.getElementById("menu").appendChild(div_Chenhlech3);
+            var lab_Chenhlech3 = document.createElement('div');
+            lab_Chenhlech3.innerHTML  = 'Chenhlech3: <span id="val_Chenhlech3"></span>';
+            lab_Chenhlech3.className = 'filterlabel';
+            document.getElementById("menu").appendChild(lab_Chenhlech3);
+            var reset_Chenhlech3 = document.createElement('div');
+            reset_Chenhlech3.innerHTML = 'clear filter';
+            reset_Chenhlech3.className = 'filterlabel';
+            lab_Chenhlech3.className = 'filterlabel';
+            reset_Chenhlech3.onclick = function() {
+                sel_Chenhlech3.noUiSlider.reset();
+            };
+            document.getElementById("menu").appendChild(reset_Chenhlech3);
+            var sel_Chenhlech3 = document.getElementById('div_Chenhlech3');
+            noUiSlider.create(sel_Chenhlech3, {
+                connect: true,
+                start: [-0.07, 3.66],
+                range: {
+                min: -0.07,
+                max: 3.66
+                }
+            });
+            sel_Chenhlech3.noUiSlider.on('update', function (values) {
+            val_Chenhlech3 = document.getElementById('val_Chenhlech3');
+            val_Chenhlech3.innerHTML = values.join(' - ');
+                filterFunc()
+            });
         L.ImageOverlay.include({
             getBounds: function () {
                 return this._bounds;
