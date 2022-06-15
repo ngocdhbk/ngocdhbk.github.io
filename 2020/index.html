@@ -11,9 +11,11 @@
         <link rel="stylesheet" href="css/filter.css">
 <link rel="stylesheet" href="css/nouislider.min.css">
         <style>
-        #map {
-            width: 914px;
-            height: 852px;
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
         }
         </style>
         <title></title>
@@ -51,8 +53,8 @@
             }
         }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[21.078164234283907,104.97505041951607],[21.173760105558234,105.07761916610687]]);
+            zoomControl:true, maxZoom:28, minZoom:14
+        }).fitBounds([[21.03807564310435,104.97505041951607],[21.213848696737784,105.07761916610687]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -65,7 +67,7 @@
             pane: 'pane_GoogleHybrid_0',
             opacity: 1.0,
             attribution: '',
-            minZoom: 1,
+            minZoom: 14,
             maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 18
@@ -89,7 +91,6 @@
                                               img_bounds_Dintchcyxanh13012021_2,
                                               {pane: 'pane_Dintchcyxanh13012021_2'});
         bounds_group.addLayer(layer_Dintchcyxanh13012021_2);
-        map.addLayer(layer_Dintchcyxanh13012021_2);
         function pop_Phnloicclrngtheochnhlch122020_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
