@@ -11,9 +11,11 @@
         <link rel="stylesheet" href="css/filter.css">
 <link rel="stylesheet" href="css/nouislider.min.css">
         <style>
-        #map {
-            width: 914px;
-            height: 852px;
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
         }
         </style>
         <title></title>
@@ -51,8 +53,8 @@
             }
         }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[21.091965742201065,104.98231517975528],[21.174750285254593,105.07699399100726]]);
+            zoomControl:true, maxZoom:28, minZoom:14
+        }).fitBounds([[21.043940654256886,104.99115437994247],[21.202054917640393,105.08952548213435]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -65,22 +67,22 @@
             pane: 'pane_GoogleHybrid_0',
             opacity: 1.0,
             attribution: '',
-            minZoom: 1,
+            minZoom: 14,
             maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 18
         });
         layer_GoogleHybrid_0;
         map.addLayer(layer_GoogleHybrid_0);
-        map.createPane('pane_nhmuvtinhghp1thng_1');
-        map.getPane('pane_nhmuvtinhghp1thng_1').style.zIndex = 401;
-        var img_nhmuvtinhghp1thng_1 = 'data/nhmuvtinhghp1thng_1.png';
-        var img_bounds_nhmuvtinhghp1thng_1 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
-        var layer_nhmuvtinhghp1thng_1 = new L.imageOverlay(img_nhmuvtinhghp1thng_1,
-                                              img_bounds_nhmuvtinhghp1thng_1,
-                                              {pane: 'pane_nhmuvtinhghp1thng_1'});
-        bounds_group.addLayer(layer_nhmuvtinhghp1thng_1);
-        map.addLayer(layer_nhmuvtinhghp1thng_1);
+        map.createPane('pane_nhmuvtinhghp1512202115012022_1');
+        map.getPane('pane_nhmuvtinhghp1512202115012022_1').style.zIndex = 401;
+        var img_nhmuvtinhghp1512202115012022_1 = 'data/nhmuvtinhghp1512202115012022_1.png';
+        var img_bounds_nhmuvtinhghp1512202115012022_1 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_nhmuvtinhghp1512202115012022_1 = new L.imageOverlay(img_nhmuvtinhghp1512202115012022_1,
+                                              img_bounds_nhmuvtinhghp1512202115012022_1,
+                                              {pane: 'pane_nhmuvtinhghp1512202115012022_1'});
+        bounds_group.addLayer(layer_nhmuvtinhghp1512202115012022_1);
+        map.addLayer(layer_nhmuvtinhghp1512202115012022_1);
         map.createPane('pane_Dintchcyxanh1512202115012022_2');
         map.getPane('pane_Dintchcyxanh1512202115012022_2').style.zIndex = 402;
         var img_Dintchcyxanh1512202115012022_2 = 'data/Dintchcyxanh1512202115012022_2.png';
@@ -89,7 +91,6 @@
                                               img_bounds_Dintchcyxanh1512202115012022_2,
                                               {pane: 'pane_Dintchcyxanh1512202115012022_2'});
         bounds_group.addLayer(layer_Dintchcyxanh1512202115012022_2);
-        map.addLayer(layer_Dintchcyxanh1512202115012022_2);
         function pop_Phnloicclrngtheochnhlch122021_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -218,7 +219,7 @@
         bounds_group.addLayer(layer_Phnloicclrngtheochnhlch122021_3);
         map.addLayer(layer_Phnloicclrngtheochnhlch122021_3);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Phân loại các lô rừng theo chênh lệch (12/2021)<br /><table><tr><td style="text-align: center;"><img src="legend/Phnloicclrngtheochnhlch122021_3_Chênhlệchnhỏ0.png" /></td><td>Chênh lệch nhỏ</td></tr><tr><td style="text-align: center;"><img src="legend/Phnloicclrngtheochnhlch122021_3_Chênhlệchtrungbình1.png" /></td><td>Chênh lệch trung bình</td></tr><tr><td style="text-align: center;"><img src="legend/Phnloicclrngtheochnhlch122021_3_Chênhlệchlớn2.png" /></td><td>Chênh lệch lớn</td></tr></table>': layer_Phnloicclrngtheochnhlch122021_3,"Diện tích cây xanh (15/12/2021 - 15/01/2022)": layer_Dintchcyxanh1512202115012022_2,"Ảnh màu vệ tinh (ghép 1 tháng)": layer_nhmuvtinhghp1thng_1,"Google Hybrid": layer_GoogleHybrid_0,}).addTo(map);
+        L.control.layers(baseMaps,{'Phân loại các lô rừng theo chênh lệch (12/2021)<br /><table><tr><td style="text-align: center;"><img src="legend/Phnloicclrngtheochnhlch122021_3_Chênhlệchnhỏ0.png" /></td><td>Chênh lệch nhỏ</td></tr><tr><td style="text-align: center;"><img src="legend/Phnloicclrngtheochnhlch122021_3_Chênhlệchtrungbình1.png" /></td><td>Chênh lệch trung bình</td></tr><tr><td style="text-align: center;"><img src="legend/Phnloicclrngtheochnhlch122021_3_Chênhlệchlớn2.png" /></td><td>Chênh lệch lớn</td></tr></table>': layer_Phnloicclrngtheochnhlch122021_3,"Diện tích cây xanh (15/12/2021 - 15/01/2022)": layer_Dintchcyxanh1512202115012022_2,"Ảnh màu vệ tinh (ghép 15/12/2021 - 15/01/2022)": layer_nhmuvtinhghp1512202115012022_1,"Google Hybrid": layer_GoogleHybrid_0,}).addTo(map);
         setBounds();
         var mapDiv = document.getElementById('map');
         var row = document.createElement('div');
