@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/filter.css">
+<link rel="stylesheet" href="css/nouislider.min.css">
+        <style>
+        #map {
+            width: 914px;
+            height: 852px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/tailDT.js"></script>
+<script src="js/nouislider.min.js"></script>
+<script src="js/wNumb.js"></script>
+        <script src="data/Phnloicclrngtheochnhlch122020_3.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[21.078164234283907,104.97505041951607],[21.173760105558234,105.07761916610687]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_GoogleHybrid_0');
+        map.getPane('pane_GoogleHybrid_0').style.zIndex = 400;
+        var layer_GoogleHybrid_0 = L.tileLayer('http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleHybrid_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 18
+        });
+        layer_GoogleHybrid_0;
+        map.addLayer(layer_GoogleHybrid_0);
+        map.createPane('pane_nhmuvtinh13012021_1');
+        map.getPane('pane_nhmuvtinh13012021_1').style.zIndex = 401;
+        var img_nhmuvtinh13012021_1 = 'data/nhmuvtinh13012021_1.png';
+        var img_bounds_nhmuvtinh13012021_1 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_nhmuvtinh13012021_1 = new L.imageOverlay(img_nhmuvtinh13012021_1,
+                                              img_bounds_nhmuvtinh13012021_1,
+                                              {pane: 'pane_nhmuvtinh13012021_1'});
+        bounds_group.addLayer(layer_nhmuvtinh13012021_1);
+        map.addLayer(layer_nhmuvtinh13012021_1);
+        map.createPane('pane_Dintchcyxanh13012021_2');
+        map.getPane('pane_Dintchcyxanh13012021_2').style.zIndex = 402;
+        var img_Dintchcyxanh13012021_2 = 'data/Dintchcyxanh13012021_2.png';
+        var img_bounds_Dintchcyxanh13012021_2 = [[20.965534300138582,104.99980733120593],[21.17802175326015,105.14459775567164]];
+        var layer_Dintchcyxanh13012021_2 = new L.imageOverlay(img_Dintchcyxanh13012021_2,
+                                              img_bounds_Dintchcyxanh13012021_2,
+                                              {pane: 'pane_Dintchcyxanh13012021_2'});
+        bounds_group.addLayer(layer_Dintchcyxanh13012021_2);
+        map.addLayer(layer_Dintchcyxanh13012021_2);
+        function pop_Phnloicclrngtheochnhlch122020_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">STT</th>\
+                        <td>' + (feature.properties['STT'] !== null ? autolinker.link(feature.properties['STT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DOI_SX</th>\
+                        <td>' + (feature.properties['DOI_SX'] !== null ? autolinker.link(feature.properties['DOI_SX'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">KHOANH</th>\
+                        <td>' + (feature.properties['KHOANH'] !== null ? autolinker.link(feature.properties['KHOANH'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LO</th>\
+                        <td>' + (feature.properties['LO'] !== null ? autolinker.link(feature.properties['LO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LOAI_CAY</th>\
+                        <td>' + (feature.properties['LOAI_CAY'] !== null ? autolinker.link(feature.properties['LOAI_CAY'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">NAM_TRONG</th>\
+                        <td>' + (feature.properties['NAM_TRONG'] !== null ? autolinker.link(feature.properties['NAM_TRONG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">XA</th>\
+                        <td>' + (feature.properties['XA'] !== null ? autolinker.link(feature.properties['XA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DOI_SX_CU</th>\
+                        <td>' + (feature.properties['DOI_SX_CU'] !== null ? autolinker.link(feature.properties['DOI_SX_CU'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DT_BAOCAO</th>\
+                        <td>' + (feature.properties['DT_BAOCAO'] !== null ? autolinker.link(feature.properties['DT_BAOCAO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DT_POLYGON</th>\
+                        <td>' + (feature.properties['DT_POLYGON'] !== null ? autolinker.link(feature.properties['DT_POLYGON'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DT_AnhVT</th>\
+                        <td>' + (feature.properties['DT_AnhVT'] !== null ? autolinker.link(feature.properties['DT_AnhVT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Chenhlech3</th>\
+                        <td>' + (feature.properties['Chenhlech3'] !== null ? autolinker.link(feature.properties['Chenhlech3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Phnloicclrngtheochnhlch122020_3_0(feature) {
+            if (feature.properties['Chenhlech3'] >= -1.000000 && feature.properties['Chenhlech3'] <= 0.599000 ) {
+                return {
+                pane: 'pane_Phnloicclrngtheochnhlch122020_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(72,169,24,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Chenhlech3'] >= 0.600000 && feature.properties['Chenhlech3'] <= 1.500000 ) {
+                return {
+                pane: 'pane_Phnloicclrngtheochnhlch122020_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(181,126,49,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Chenhlech3'] >= 1.500000 && feature.properties['Chenhlech3'] <= 5.000000 ) {
+                return {
+                pane: 'pane_Phnloicclrngtheochnhlch122020_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(230,17,63,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_Phnloicclrngtheochnhlch122020_3');
+        map.getPane('pane_Phnloicclrngtheochnhlch122020_3').style.zIndex = 403;
+        map.getPane('pane_Phnloicclrngtheochnhlch122020_3').style['mix-blend-mode'] = 'normal';
+        var layer_Phnloicclrngtheochnhlch122020_3 = new L.geoJson(json_Phnloicclrngtheochnhlch122020_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Phnloicclrngtheochnhlch122020_3',
+            layerName: 'layer_Phnloicclrngtheochnhlch122020_3',
+            pane: 'pane_Phnloicclrngtheochnhlch122020_3',
+            onEachFeature: pop_Phnloicclrngtheochnhlch122020_3,
+            style: style_Phnloicclrngtheochnhlch122020_3_0,
+        });
+        bounds_group.addLayer(layer_Phnloicclrngtheochnhlch122020_3);
+        map.addLayer(layer_Phnloicclrngtheochnhlch122020_3);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Phân loại các lô rừng theo chênh lệch (12/2020)<br /><table><tr><td style="text-align: center;"><img src="legend/Phnloicclrngtheochnhlch122020_3_Chênhlệchnhỏ0.png" /></td><td>Chênh lệch nhỏ</td></tr><tr><td style="text-align: center;"><img src="legend/Phnloicclrngtheochnhlch122020_3_Chênhlệchtrungbình1.png" /></td><td>Chênh lệch trung bình</td></tr><tr><td style="text-align: center;"><img src="legend/Phnloicclrngtheochnhlch122020_3_Chênhlệchlớn2.png" /></td><td>Chênh lệch lớn</td></tr></table>': layer_Phnloicclrngtheochnhlch122020_3,"Diện tích cây xanh (13/01/2021)": layer_Dintchcyxanh13012021_2,"Ảnh màu vệ tinh (13/01/2021)": layer_nhmuvtinh13012021_1,"Google Hybrid": layer_GoogleHybrid_0,}).addTo(map);
+        setBounds();
+        var mapDiv = document.getElementById('map');
+        var row = document.createElement('div');
+        row.className="row";
+        row.id="all";
+        row.style.height = "100%";
+        var col1 = document.createElement('div');
+        col1.className="col9";
+        col1.id = "mapWindow";
+        col1.style.height = "99%";
+        col1.style.width = "80%";
+        col1.style.display = "inline-block";
+        var col2 = document.createElement('div');
+        col2.className="col3";
+        col2.id = "menu";
+        col2.style.display = "inline-block";
+        mapDiv.parentNode.insertBefore(row, mapDiv);
+        document.getElementById("all").appendChild(col1);
+        document.getElementById("all").appendChild(col2);
+        col1.appendChild(mapDiv)
+        var Filters = {"Chenhlech3": "real"};
+        function filterFunc() {
+          map.eachLayer(function(lyr){
+          if ("options" in lyr && "dataVar" in lyr["options"]){
+            features = this[lyr["options"]["dataVar"]].features.slice(0);
+            try{
+              for (key in Filters){
+                keyS = key.replace(/[^a-zA-Z0-9_]/g, "")
+                if (Filters[key] == "str" || Filters[key] == "bool"){
+                  var selection = [];
+                  var options = document.getElementById("sel_" + keyS).options
+                  for (var i=0; i < options.length; i++) {
+                    if (options[i].selected) selection.push(options[i].value);
+                  }
+                    try{
+                      if (key in features[0].properties){
+                        for (i = features.length - 1;
+                          i >= 0; --i){
+                          if (selection.indexOf(
+                          features[i].properties[key])<0
+                          && selection.length>0) {
+                          features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                  }
+                }
+                if (Filters[key] == "int"){
+                  sliderVals =  document.getElementById(
+                    "div_" + keyS).noUiSlider.get();
+                  try{
+                    if (key in features[0].properties){
+                    for (i = features.length - 1; i >= 0; --i){
+                      if (parseInt(features[i].properties[key])
+                          < sliderVals[0]
+                          || parseInt(features[i].properties[key])
+                          > sliderVals[1]){
+                            features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                    }
+                  }
+                if (Filters[key] == "real"){
+                  sliderVals =  document.getElementById(
+                    "div_" + keyS).noUiSlider.get();
+                  try{
+                    if (key in features[0].properties){
+                    for (i = features.length - 1; i >= 0; --i){
+                      if (features[i].properties[key]
+                          < sliderVals[0]
+                          || features[i].properties[key]
+                          > sliderVals[1]){
+                            features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                    }
+                  }
+                if (Filters[key] == "date"
+                  || Filters[key] == "datetime"
+                  || Filters[key] == "time"){
+                  try{
+                    if (key in features[0].properties){
+                      HTMLkey = key.replace(/[&\/\\#,+()$~%.'":*?<>{} ]/g, '');
+                      startdate = document.getElementById("dat_" +
+                        HTMLkey + "_date1").value.replace(" ", "T");
+                      enddate = document.getElementById("dat_" +
+                        HTMLkey + "_date2").value.replace(" ", "T");
+                      for (i = features.length - 1; i >= 0; --i){
+                        if (features[i].properties[key] < startdate
+                          || features[i].properties[key] > enddate){
+                          features.splice(i,1);
+                        }
+                      }
+                    }
+                  } catch(err){
+                  }
+                }
+              }
+            } catch(err){
+            }
+          this[lyr["options"]["layerName"]].clearLayers();
+          this[lyr["options"]["layerName"]].addData(features);
+          }
+          })
+        }
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_Chenhlech3 = document.createElement("div");
+            div_Chenhlech3.id = "div_Chenhlech3";
+            div_Chenhlech3.className = "slider";
+            document.getElementById("menu").appendChild(div_Chenhlech3);
+            var lab_Chenhlech3 = document.createElement('div');
+            lab_Chenhlech3.innerHTML  = 'Chenhlech3: <span id="val_Chenhlech3"></span>';
+            lab_Chenhlech3.className = 'filterlabel';
+            document.getElementById("menu").appendChild(lab_Chenhlech3);
+            var reset_Chenhlech3 = document.createElement('div');
+            reset_Chenhlech3.innerHTML = 'clear filter';
+            reset_Chenhlech3.className = 'filterlabel';
+            lab_Chenhlech3.className = 'filterlabel';
+            reset_Chenhlech3.onclick = function() {
+                sel_Chenhlech3.noUiSlider.reset();
+            };
+            document.getElementById("menu").appendChild(reset_Chenhlech3);
+            var sel_Chenhlech3 = document.getElementById('div_Chenhlech3');
+            noUiSlider.create(sel_Chenhlech3, {
+                connect: true,
+                start: [-0.07, 3.66],
+                range: {
+                min: -0.07,
+                max: 3.66
+                }
+            });
+            sel_Chenhlech3.noUiSlider.on('update', function (values) {
+            val_Chenhlech3 = document.getElementById('val_Chenhlech3');
+            val_Chenhlech3.innerHTML = values.join(' - ');
+                filterFunc()
+            });
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>
